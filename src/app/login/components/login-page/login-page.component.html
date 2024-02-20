@@ -1,0 +1,52 @@
+<div class="container-fluid bg-white">
+    <div class="row vh-100">
+        <div class="col-4">
+            <div class="row mx-3 h-100">
+                <div class="col-12 mt-3">
+                    <img width="97" src="assets/images/sharjah-login-logo.png">
+                </div>
+                <div class="col-12">
+                    <form #login="ngForm" (ngSubmit)="login.form.valid && goTologin()">
+                    <div class="row">
+                        <span class="fs-22 fw-bold mb-2">
+                            مرحبًا بك!
+                        </span>
+                        <span class="fs-16 text-grey">
+                            برجاء تسجيل الدخول بإستخدام اسم المستخدم وكلمة المرور
+                        </span>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            اسم المستخدم
+                        </div>
+                        <div class="col-12 mt-2">
+                            <input class="form-control" type="text">
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            كلمة المرور
+                        </div>
+                        <div class="col-12 mt-2">
+                            <input class="form-control" type="password" autocomplete="new-password">
+                        </div>
+                    </div>
+                    <div class="row mt-5">
+                        <div class="col-12">
+                            <button  type="submit" class="btn-brown w-100 text-white py-2 action-btn">
+                                تسجيل الدخول
+                            </button>
+                        </div>
+                    </div>
+                </form>
+                </div>
+                <div class="col-12"></div>
+            </div>
+        </div>
+        <div class="col-8 login-bg rounded-4 d-flex align-items-center ">
+            <span class="text-white fs-35">
+                منصة الدفاع المدنى
+            </span>
+        </div>
+    </div>
+</div>

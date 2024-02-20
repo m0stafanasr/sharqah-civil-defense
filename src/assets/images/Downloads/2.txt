@@ -1,0 +1,24 @@
+const sharjahcities = [
+{id: 1,
+cityAR:"الاداره"},
+]
+const sharjahcities = [
+{id: 2,
+cityAR:"سمنان"},
+]
+const sharjahcities = [
+{id: 3,
+cityAR:"الميناء"},
+]
+const sharjahcities = [
+{id: 4,
+cityAR:"نقطة النهدة"},
+]
+const sharjahcities = [
+{id: 5,
+cityAR:"نقطه التعاون"},
+]
+const sharjahcities = [
+{id: 6,
+cityAR:"مويلح"},
+]

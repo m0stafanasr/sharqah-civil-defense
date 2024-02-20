@@ -1,0 +1,241 @@
+<div class="container-fluid">
+    <div class="row h-100">
+        <div class="col-6">
+            <div class="row mx-2 bg-white rounded-3 mt-2  h-100 d-flex align-items-center pt-2">
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-6 d-flex justify-content-start">
+                            <p class="m-0 inc-priority d-inline-flex align-items-center fs-11"
+                                [style.color]="incident.priorityColor"><span
+                                    [style.backgroundColor]="incident.priorityColor" class="mx-1 fw-bold"></span>
+                                <b> {{incident.priority }}</b>
+                            </p>
+                        </div>
+                        <div class="col-6 d-flex justify-content-end">
+                            <label class="text-brown fs-12 fw-bold">{{incident.statuses[0].status}}</label>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="map-area">
+                            <app-esri-map [clickable]="false" [searchable]="false" [center]="mapCenter"
+                                [basemap]="basemapType" [zoom]="mapZoomLevel"
+                                (mapLoadedEvent)="mapLoadedEvent($event)"></app-esri-map>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-4">
+                            <div class="data">
+                                <label class="text-light-grey fs-11">{{"رقم البلاغ"}}</label>
+                                <div class="text-grey fw-bold fs-13 text-wrap">{{incident.id}}</div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="data">
+                                <label class="text-light-grey fs-11">{{"هاتف المتصل"}}</label>
+                                <div class="text-grey fw-bold fs-13 text-wrap">{{incident.callerNumber}}</div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="data">
+                                <label class="text-light-grey fs-11">{{"أسم المتصل"}}</label>
+                                <div class="text-grey fw-bold fs-13 text-wrap">{{incident.callerName}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-4">
+                            <div class="data">
+                                <label class="text-light-grey fs-11">{{"نوع الحادث"}}</label>
+                                <div class="text-grey fw-bold fs-13 text-wrap">{{incident.incidentType}}</div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="data">
+                                <label class="text-light-grey fs-11">{{"الضرر المباشر"}}</label>
+                                <div class="text-grey fw-bold fs-13 text-wrap">{{incident.entityCategory}}</div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="data">
+                                <label class="text-light-grey fs-11">{{"رمز الإرسال"}}</label>
+                                <div class="text-grey fw-bold fs-13 text-wrap">{{incident.dispatchCode}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="mx-3 mb-2">
+                    <div class="row mx-2 d-flex align-items-center">
+                        <div class="data col-7 d-flex align-items-center">
+                            <label class="text-light-grey fs-12">{{"الدعم"}}:</label>
+                            <div class="text-grey fw-bold fs-13 text-wrap d-inline-flex align-items-center"
+                                [hidden]="incident.support.length==0" *ngFor="let s of incident.support">
+                                <p class="px-2 mb-0"> {{s}}،</p>
+                            </div>
+                        </div>
+                        <div class="col-5">
+                            <div class="d-inline-flex justify-content-between align-items-center mb-1">
+                                <button class="btn btn-outline-blue btn-primary px-1">
+                                    {{"إرسال الموقع عن طريق رسال نصية"}}
+                                   
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="mx-3 my-2">
+                    <div class="row">
+                        <div class="col-12">
+                            <label class="text-main">{{"التعليقات"}}:</label>
+                        </div>
+                        <div class="col-12">
+                            <div class="row comments-list mx-2">
+                                <div class="row comment-border mx-0 mt-2" *ngFor="let comment of incident.comments">
+                                    <span class="col-1 px-2 d-flex align-items-center">
+                                        <img src="assets/images/Group 518.svg">
+                                    </span>
+                                    <span class="col-10 align-self-center">
+                                        <div class="row">
+                                            <label class="fs-11 fw-bold text-name">{{comment.createdBy}}</label>
+                                        </div>
+                                        <div class="row">
+                                            <label class="fs-10 text-light-grey">{{comment.date}}</label>
+                                        </div>
+                                    </span>
+                                    <div class="col-12">
+                                        <label class="text-comment fs-12 fw-bold">{{comment.comment}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-6 px-0">
+            <div class="row mx-2 bg-white rounded-3 mt-2  ">
+                <div class="col-12 page-height">
+                    <div class="row">
+                        <div class="col-12">
+                            <label class="fs-15 fw-bold text-main">
+                                {{"المراكز المسندة"}}
+                            </label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="accordion accordion-flush" id="accordionFlushExample">
+                            <div class="accordion-item" *ngFor="let station of incident.assignedStations">
+                                <h2 class="accordion-header">
+                                    <div class="accordion-button collapsed row" type="button"
+                                        aria-expanded="false"
+                                       >
+                                        <div class="col-8 d-flex justify-content-start">
+                                            {{station.stationName}}
+                                        </div>
+                                        <div class="col-4 d-inline-flex">
+                                            <button data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-controls="flush-collapseOne" class="btn status-btn text-brown px-2 fs-12">
+                                                {{"تحديث الحالة"}}
+                                            </button>
+                                            <button class="btn btn-danger text-white mx-2 fs-12" (click)="relief(station.stationId)">
+                                                {{"إلغاء"}}
+                                            </button>
+                                        </div> 
+                                    </div>
+                                </h2>
+                                <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                    data-bs-parent="#accordionFlushExample">
+                                    <div class="accordion-body">
+                                       <div class="row">
+                                        <div class="col-12 support">
+                                            <mat-chip-listbox   aria-label="Fish selection" multiple="true">
+                                                <mat-chip-option class="rounded-3"
+                                                disableRipple="true">{{"تم الإسناد"}}</mat-chip-option>                           
+                                                <mat-chip-option (click)="changeEvent($event, station.stationId)" class="rounded-3"
+                                                disableRipple="true">{{"إستلام"}}</mat-chip-option>                           
+                                                <mat-chip-option (click)="changeEvent($event, station.stationId)" class="rounded-3"
+                                                disableRipple="true">{{"في الطريق"}}</mat-chip-option>                           
+                                                <mat-chip-option (click)="changeEvent($event, station.stationId)" class="rounded-3"
+                                                disableRipple="true">{{"وصول"}}</mat-chip-option>                           
+                                                <mat-chip-option (click)="changeEvent($event, station.stationId)" class="rounded-3"
+                                                disableRipple="true">{{"وصول الفرقة"}}</mat-chip-option>                           
+                                                <mat-chip-option (click)="changeEvent($event, station.stationId)" class="rounded-3"
+                                                disableRipple="true">{{"بدأ المكافحة"}}</mat-chip-option>                           
+                                                <mat-chip-option (click)="changeEvent($event, station.stationId)" class="rounded-3"
+                                                disableRipple="true">{{"السيطرة على الحالة"}}</mat-chip-option>                           
+                                                <mat-chip-option (click)="changeEvent($event, station.stationId)" class="rounded-3"
+                                                disableRipple="true">{{"الأنتهاء"}}</mat-chip-option>                           
+                                                <mat-chip-option (click)="changeEvent($event, station.stationId)" class="rounded-3"
+                                                disableRipple="true">{{"مغادرة الموقع"}}</mat-chip-option>                           
+                                                <mat-chip-option (click)="changeEvent($event, station.stationId)" class="rounded-3"
+                                                disableRipple="true">{{"العودة للمركز"}}</mat-chip-option>                           
+                                                <mat-chip-option (click)="changeEvent($event, station.stationId)" class="rounded-3"
+                                                disableRipple="true">{{"جاهزية المركز"}}</mat-chip-option>                           
+                                              </mat-chip-listbox>   
+                                        </div>
+                                    </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-2">
+                        <div class="col-12 list-cointainer">
+                            <div class="station-item my-2 " *ngFor="let station of stations">
+                                <div class="row g-0">
+                                    <div class="col-3">
+                                        <div class="d-flex justify-content-start align-items-center">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                                                <label class="form-check-label" for="flexCheckDefault"></label>
+                                            </div>
+                                            <p class="mx-2 my-0 font-14 fw-bold">{{station.nameAr}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-9">
+                                        <div class="station-tools mr-5">
+                                            <ul class="d-flex flex-wrap mb-0">
+                                                <li><img src="assets/images/Icon material-sharp-check-circle-outline.svg" width="12px"> 
+                                                    <p>Front</p>
+                                                </li>
+                                                <li><img src="assets/images/Icon material-sharp-check-circle-outline.svg" width="12px"> 
+                                                    <p>مقدمة</p>
+                                                </li>
+                                                <li><img src="assets/images/Icon material-sharp-check-circle-outline.svg" width="12px"> 
+                                                    <p>خزان مياة</p>
+                                                </li> 
+                                                <li><img src="assets/images/Icon material-sharp-check-circle-outline.svg" width="12px"> 
+                                                    <p>فوم</p>
+                                                </li>  
+                                                <li><img src="assets/images/Icon material-sharp-check-circle-outline.svg" width="12px"> 
+                                                    <p>ادوات تنفس</p>
+                                                </li>
+                                                <li><img src="assets/images/Icon material-sharp-check-circle-outline.svg" width="12px"> 
+                                                    <p>معدات أخري</p>
+                                                </li>   
+                                                <li><img src="assets/images/Icon material-sharp-check-circle-outline.svg" width="12px"> 
+                                                    <p>تنكر تزويد</p>
+                                                </li> 
+                                                <li><img src="assets/images/Icon material-sharp-check-circle-outline.svg" width="12px"> 
+                                                    <p>سلم</p>
+                                                </li> 
+                                                <li><img src="assets/images/Icon material-sharp-check-circle-outline.svg" width="12px"> 
+                                                    <p>ضابط مناوب</p>
+                                                </li> 
+                                                <li><img src="assets/images/Icon material-sharp-check-circle-outline.svg" width="12px"> 
+                                                    <p>صهريج</p>
+                                                </li> 
+                                                <li><img src="assets/images/Icon material-sharp-check-circle-outline.svg" width="12px"> 
+                                                    <p>عمليات متحركة</p>
+                                                </li> 
+                                                <li><img src="assets/images/Icon material-sharp-check-circle-outline.svg" width="12px"> 
+                                                    <p>زورق بحرى</p>
+                                                </li>   
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

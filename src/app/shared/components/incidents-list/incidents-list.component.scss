@@ -1,0 +1,65 @@
+.mdc-evolution-chip__graphic {
+      display: none !important;
+      padding: 2%;
+    }
+  
+    [dir=rtl] .mat-mdc-standard-chip.mdc-evolution-chip--with-primary-graphic{
+       
+        padding-right: 12px;
+    }
+
+    .list-container{
+      max-height: 17rem;
+      height: 17rem;
+      overflow: auto;
+    }
+
+    .incident-item{
+      border: 1px solid #D9D9D9;
+      background-color: #fff;
+      border-radius: 8px;
+  }
+
+.list-container::-webkit-scrollbar {
+  position: absolute !important;
+  width: 6px !important;
+  border-radius: 13px !important;
+}
+
+.list-container::-webkit-scrollbar-track {
+  background: #edeef1 !important;
+  border-radius: 15px !important;
+}
+
+.list-container::-webkit-scrollbar-thumb {
+  border-radius: 15px !important;
+  background: #707070 !important;
+  border: 2px solid #707070 !important;
+  -webkit-border-radius: 15px !important;
+  -moz-border-radius: 15px !important;
+  -ms-border-radius: 15px !important;
+  -o-border-radius: 15px !important;
+}
+
+
+/* Handle on hover */
+
+.list-container::-webkit-scrollbar-thumb:hover {
+  background: rgb(186, 185, 185) !important;
+  border: 2px solid rgb(186, 185, 185) !important;
+}
+
+.bg-grey{
+  background: #EEEEEE 0% 0% no-repeat padding-box;
+border-radius: 3px;
+color: #4F5965;
+}
+.bg-green{
+  background: #BBD6B4 0% 0% no-repeat padding-box;
+border-radius: 3px;
+color: #2F6A1F
+}
+.dispatcher-list .list-container{
+  max-height: 36rem !important; 
+    height: 40rem !important;
+}

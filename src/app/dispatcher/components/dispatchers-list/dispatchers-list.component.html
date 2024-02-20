@@ -1,0 +1,20 @@
+<div class="container-fluid dispatcher-list h-100">
+
+    <div class="row h-100">
+        <div class="col-6">
+            <div class="row mx-2 bg-white rounded-3 h-100">
+                <div class="map-area">
+                    <app-esri-map [clickable]="false" [searchable]="false" [center]="mapCenter" [basemap]="basemapType"
+                        [zoom]="mapZoomLevel" (mapLoadedEvent)="mapLoadedEvent($event)"></app-esri-map>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-6 px-0">
+            <div class="row mx-2 bg-white rounded-3   h-100">
+                <app-incidents-list  [incidentsList]="incidentList"></app-incidents-list>
+            </div>
+        </div>
+    </div>
+
+</div>

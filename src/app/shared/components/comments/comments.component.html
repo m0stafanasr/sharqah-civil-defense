@@ -1,0 +1,36 @@
+<div class="col-12 mt-2 ">
+    <div class="row">
+        <div class="col-12">
+            <label class="fs-14 fw-bold text-main"> {{"التعليقات"}}</label>
+
+        </div>
+        <div class="col-12 my-3">
+            <div class="row comment-border mx-1" *ngFor="let comment of _comments">
+                <span class="col-1 p-2">
+                    <img src="assets/images/Group 518.svg">
+                </span>
+                <span class="col-10 align-self-center">
+                    <div class="row">
+                        <label class="fs-11 fw-bold text-name">{{comment.createdBy}}</label>
+                    </div>
+                    <div class="row">
+                        <label class="fs-10 text-light-grey">{{comment.date}}</label>
+                    </div>
+                </span>
+                <div class="col-12">
+                    <label class="text-comment fs-12 fw-bold">{{comment.comment}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="w-100 d-inline-flex comment-bar">
+        <div class="col-9">
+            <input class="form-control" type="text" placeholder="التعليقات">
+        </div>
+        <div class="col-3 mx-2">
+            <button class="btn btn-brown text-white">
+                تسجيل
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="36" height="36" viewBox="0 0 36 36">
+  <defs>
+    <linearGradient id="linear-gradient" x2="1" y2="0.917" gradientUnits="objectBoundingBox">
+      <stop offset="0" stop-color="#e2bcbc"/>
+      <stop offset="1" stop-color="#eee4c8"/>
+    </linearGradient>
+  </defs>
+  <g id="Group_537" data-name="Group 537" transform="translate(-1323 -75)">
+    <g id="Group_3" data-name="Group 3" transform="translate(19 -5)">
+      <rect id="Rectangle_3" data-name="Rectangle 3" width="36" height="36" rx="10" transform="translate(1304 80)" fill="url(#linear-gradient)"/>
+    </g>
+    <path id="Icon_fa-solid-user" data-name="Icon fa-solid-user" d="M7.5,8.571A4.286,4.286,0,1,0,3.214,4.286,4.286,4.286,0,0,0,7.5,8.571ZM5.97,10.179A5.969,5.969,0,0,0,0,16.148a1,1,0,0,0,.994.994H14.006A1,1,0,0,0,15,16.148a5.969,5.969,0,0,0-5.97-5.97H5.97Z" transform="translate(1334 84)" fill="#fff"/>
+  </g>
+</svg>

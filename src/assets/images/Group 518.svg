@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+  <g id="Group_518" data-name="Group 518" transform="translate(-485 -47)">
+    <g id="Group_519" data-name="Group 519">
+      <circle id="Ellipse_2" data-name="Ellipse 2" cx="14" cy="14" r="14" transform="translate(485 47)" fill="#d8d7ce"/>
+      <path id="Icon_fa-solid-user" data-name="Icon fa-solid-user" d="M4,4.571A2.286,2.286,0,1,0,1.714,2.286,2.286,2.286,0,0,0,4,4.571Zm-.816.857A3.183,3.183,0,0,0,0,8.613a.53.53,0,0,0,.53.53H7.47A.53.53,0,0,0,8,8.613,3.183,3.183,0,0,0,4.816,5.429H3.184Z" transform="translate(495 56.429)" fill="#37362d"/>
+    </g>
+  </g>
+</svg>

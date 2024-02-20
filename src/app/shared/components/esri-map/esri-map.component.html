@@ -1,0 +1,7 @@
+<div class="row search-bar" *ngIf="searchable" >
+    <input type="text" #searchTerm class="form-control search" (keyup.enter)="getLocation(searchTerm.value)">
+    <img class="search-icon" src="assets/images/search.svg"
+    (click)="getLocation(searchTerm.value)"
+    >
+</div>
+<div #mapViewNode style="width: 100%;"> </div>

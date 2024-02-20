@@ -1,0 +1,83 @@
+<div class="row bg-light-blue">
+    <div class="col-12 d-flex align-items-center justify-content-center">
+        <img src="assets/images/sharqah-icon.png" width="200">
+    </div>
+    <hr class="mt-3">
+    <div class="dropdown d-inline-flex align-items-center justify-content-center w-100 px-0 mb-3">
+        <div class="col-12 dropdown-toggle d-inline-flex align-items-center justify-content-center"
+         type="button" data-bs-toggle="dropdown" aria-expanded="false">
+         
+          <div class="col-3 text-center">
+            <img width="45" src="assets/images/profile.svg">
+          </div>
+          <div class="col-8">
+            <div class="w-100">
+             <label class="fw-bold"> ahmed mostafa</label> 
+            </div>
+            <div class="w-100">
+             <label class="text-grey"> admin</label> 
+            </div>
+          </div>
+      
+        </div>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
+      </div>
+      <div class="col-12 bg-white px-1">
+        <hr class=" mb-0 mt-0">
+        <div class="row mt-2 d-flex justify-content-between">
+          <div class="col-4  d-flex justify-content-center">
+            <div class="side-menu-action-btn d-flex justify-content-center align-items-center" (click)="signOut()">
+                <img src="assets/images/power-off.svg">
+            </div>
+          </div>
+          <div class="col-4  d-flex justify-content-center">
+            <div class="side-menu-action-btn d-flex justify-content-center align-items-center">
+                <label class="text-grey">
+                  {{"AR"}}
+              </label>
+            </div>
+          </div>
+          <div class="col-4  d-flex justify-content-center">
+            <div class=" side-menu-action-btn d-flex justify-content-center align-items-center">
+                <img src="assets/images/Icon feather-bell.svg">
+            </div>
+          </div>
+        </div>
+        <hr class="mt-2 px-1 mb-0">
+      </div>
+      <div class="col-12 bg-white">
+        <div class="row pointer my-3 d-flex align-items-center" routerLink="/call-taker" #callTaker="routerLinkActive" routerLinkActive="active-link">
+          <div class="col-3">
+            <img [src]="callTaker.isActive?'assets/images/call-taker-active.svg':'assets/images/call-taker.svg'" width="40">
+            <!-- <img src="assets/images/call-taker-active.svg" width="40"> -->
+          </div>
+          <div class="col-9">
+            {{"مستقبل الأتصالات"}}
+          </div>
+        </div>
+        <div class="row pointer my-3 d-flex align-items-center" routerLink="/dispatchers" #dispatcher="routerLinkActive" routerLinkActive="active-link">
+          <div class="col-3">
+            <img [src]="dispatcher.isActive?'assets/images/dispatcher-active.svg':'assets/images/dispatcher.svg'" width="40">
+
+          </div>
+          <div class="col-9">
+            {{"الإسناد"}}
+          </div>
+        </div>
+        <div class="row pointer my-3 d-flex align-items-center" routerLink="/control-center" #controlCenter="routerLinkActive" routerLinkActive="active-link">
+          <div class="col-3">
+            <img [src]="controlCenter.isActive?'assets/images/call-taker-active.svg':'assets/images/call-taker.svg'" width="40">
+
+          </div>
+          <div class="col-9">
+            {{"مركز التحكم"}}
+          </div>
+        </div>
+       
+      </div>
+      <footer class="position-absolute bottom-0 col-2 text-center">{{"الإصدار 0.2"}}</footer>
+    </div>

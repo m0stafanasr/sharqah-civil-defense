@@ -1,0 +1,22 @@
+.map-area{
+    height: 25vh;
+}
+
+.comments-list{
+    overflow-y: auto;
+    overflow-x:hidden;
+    max-height: 33vh;
+    height: 33vh !important; 
+}
+
+.page-height{
+    height: 96vh;
+    overflow: auto;
+}
+.list-cointainer{
+    height: 40vh;
+    overflow: auto;
+}
+.accordion-button::after{
+    display: none !important;
+}
